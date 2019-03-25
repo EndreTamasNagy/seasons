@@ -1,15 +1,11 @@
 import React from 'react';  
 import ReactDOM from 'react-dom';
+import SeasonDisplay from'./SeasonDisplay';
 
 class App extends React.Component{
     
-    constructor(props){
-        super(props);   //calling the parent constructor
-        //THIS IS THE ONLY TIME we do direct assignment to this.state
-        this.state = {latitude: null, errorMessage: '' };    //initialize state object
+    state = {latitude: null, errorMessage: ''};
 
-    };
-    
     //perform initial data loading
     componentDidMount(){
         window.navigator.geolocation.getCurrentPosition(
@@ -18,24 +14,18 @@ class App extends React.Component{
         );
     }
 
-    /*
-    componentDidUpdate(){
-        console.log('My component was just updated - it rerendered!');
-    }
-    */
-
     //mandatory method
     render(){
 
-        //if there is no latitude AND there is an error...
+        //Error
         if (!this.state.latitude && this.state.errorMessage){
             return <div>Error: {this.state.errorMessage}</div>
         }
-        //if there is a latitude AND there is no error
+        //OK
         else if(this.state.latitude && !this.state.errorMessage){
-            return <div>Latitude: {this.state.latitude}</div>
+            return <SeasonDisplay latitude={this.state.latitude}/>
         }
-        //if ther is no latitude AND there is no error...
+        //Loading
         else if(!this.state.latitude && !this.state.errorMessage){
             return <div>Loading...</div>
         }
