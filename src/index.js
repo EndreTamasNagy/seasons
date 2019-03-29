@@ -1,6 +1,7 @@
 import React from 'react';  
 import ReactDOM from 'react-dom';
 import SeasonDisplay from'./SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component{
     
@@ -27,7 +28,7 @@ class App extends React.Component{
         }
         //Loading
         else if(!this.state.latitude && !this.state.errorMessage){
-            return <div>Loading...</div>
+            return <div><Spinner text="Waiting for location"/></div>
         }
 
     }; 

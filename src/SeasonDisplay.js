@@ -21,8 +21,10 @@ const getSeason = (latitude, month) => {
     } else {
         return latitude < 0 ? 'winter' : 'summer';
     }
+    
 }
 
+//functional component
 const SeasonDisplay = (props) => {
     const season = getSeason(props.latitude, new Date().getMonth());
     
