@@ -1,5 +1,5 @@
-#next video:
-6-2
+#last video:
+6-8
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

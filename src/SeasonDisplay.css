@@ -1,0 +1,14 @@
+body {
+    background-color: aqua;
+}
+.icon-left {
+    position: absolute;
+    top: 10 px;
+    left: 10 px;
+}
+
+.icon-right {
+    position: absolute;
+    bottom: 10 px;
+    right: 10 px;
+}
