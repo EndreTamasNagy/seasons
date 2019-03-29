@@ -15,9 +15,7 @@ class App extends React.Component{
         );
     }
 
-    //mandatory method
-    render(){
-
+    renderContent(){
         //Error
         if (!this.state.latitude && this.state.errorMessage){
             return <div>Error: {this.state.errorMessage}</div>
@@ -28,9 +26,13 @@ class App extends React.Component{
         }
         //Loading
         else if(!this.state.latitude && !this.state.errorMessage){
-            return <div><Spinner text="Waiting for location"/></div>
+            return <div><Spinner message="Please accept location request"/></div>
         }
+    }
 
+    //mandatory method
+    render(){
+        return <div className="border red">{this.renderContent()}</div>
     }; 
 
 }
